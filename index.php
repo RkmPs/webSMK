@@ -118,8 +118,6 @@
       <div class="nav">
         <a href="./index.php">Beranda</a>
         <a href="./dataSiswa.php">Data Siswa</a>
-        <a href="#">Guru</a>
-        <a href="#">Jurusan</a>
         <a href="./login.php">Login</a>
       </div>
     </div>

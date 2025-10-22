@@ -9,7 +9,41 @@
         font-family: Arial;
         background-color: #f4f4f9;
         margin: 0;
-        padding: 40px;
+      }
+
+          /* Header */
+      .header {
+        background-color: #673ab7;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+        color: white;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .logo img {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+      }
+
+      .nav a {
+        color: white;
+        text-decoration: none;
+        margin-left: 25px;
+        font-weight: bold;
+      }
+
+      .nav a:hover {
+        text-decoration: underline;
       }
 
       h2 {
@@ -18,9 +52,32 @@
         margin-bottom: 30px;
       }
 
-      table {
+      .table-container {
         width: 80%;
         margin: 0 auto;
+        position: relative;
+      }
+
+      .btn-tambah {
+        position: absolute;
+        right: 0;
+        top: -50px;
+        background-color: #673ab7;
+        color: white;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s;
+      }
+
+      .btn-tambah:hover {
+        background-color: #5e35b1;
+      }
+
+      table {
+        width: 100%;
         border-collapse: collapse;
         background-color: #fff;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -52,9 +109,11 @@
         border-radius: 5px;
         cursor: pointer;
         color: #fff;
+        text-decoration: none;
         font-size: 13px;
       }
 
+  
       .btn-edit {
         background-color: #4caf50;
       }
@@ -73,8 +132,21 @@
     </style>
   </head>
   <body>
+            <div class="header">
+      <div class="logo">
+        <img src="./asset/logo.png" alt="Logo" />
+        SMKN 2 BANDUNG
+      </div>
+      <div class="nav">
+        <a href="./index.php">Beranda</a>
+        <a href="./logout.php">logout</a>
+      </div>
+    </div>
     <h2>Data Siswa</h2>
-    <table>
+
+    <div class="table-container">
+      <button class="btn-tambah" onclick="window.location.href='./crud/add.php'">+ Tambah Data</button>
+<table>
       <thead>
         <tr>
           <th>ID</th>
@@ -97,13 +169,14 @@
                     <td>{$row['jurusan']}</td>
                     <td>{$row['alamat']}</td>
                     <td>
-                      <a href='./crud/edit_siswa.php?id={$row['id']}' class='btn btn-edit'>Edit</a>
-                      <a href='./crud/hapus_siswa.php?id={$row['id']}' class='btn btn-delete' onclick='return confirm(\"Yakin ingin menghapus data ini?\");'>Hapus</a>
+                      <a href='./crud/edit.php?id={$row['id']}' class='btn btn-edit'>Edit</a>
+                      <a href='./crud/delete.php?id={$row['id']}' class='btn btn-delete' onclick='return confirm(\"Yakin ingin menghapus data ini?\");'>Hapus</a>
                     </td>
                   </tr>";
         }
         ?>
       </tbody>
     </table>
+    </div>
   </body>
 </html>
